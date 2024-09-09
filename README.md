@@ -1,2 +1,5 @@
-# r-p123.github.io
-Raghav Github Pages Site
+# Raghav's Blog
+
+This is where I upload my projects and write about things that interest me.
+
+Thanks for visiting!
