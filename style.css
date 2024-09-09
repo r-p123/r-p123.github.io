@@ -1,0 +1,45 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap'); */
+
+
+/* body{
+  font-family: "Open Sans", sans-serif;
+} */
+
+.img-fluid{
+  width: 100%;
+}
+.jumbo{
+  text-align: justify;
+}
+
+.years{
+  text-align: right;
+}
+
+/* .col-sm-4.years{
+  text-align:left;
+}  */
+
+.container{
+  max-width: 65%;
+  
+}
+
+.container2{
+  max-width: 75%;
+}
+
+.nav_margin_remove{
+  margin-bottom: 0%;
+  padding-bottom: 0%;
+}
+
+.profile_picture{
+  top: 50%;
+  align-content: center;
+}
+
+
+.skills{
+  text-align: left;
+}
