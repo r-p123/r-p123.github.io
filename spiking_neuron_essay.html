@@ -15,9 +15,10 @@
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
     </script>
-    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS_CHTML"></script>
-
-</script>
+    <script
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS_CHTML"
+    ></script>
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -220,46 +221,23 @@
         estimated $86$ billion neurons [1]. There exists a vast number of
         neuronal models, and a common one taught in computational neuroscience
         courses is the leaky integrate and fire neuron. We won't get into the
-        derivation for it here but I put a dashboard below for you to play
-        around with how the different properties in the LIF equation effect its
-        response over time. It is modelled after an RC circuit and without any
-        input we can tune different parameters to observe any changes in its
-        response.
+        derivation for it here but I put a dashboard in the projects section to
+        demonstrate how it behaves without any spiking mechanism built it. You
+        can also view multiple neuron cells and how they interact in the
+        projects section as well. It is modelled after an RC circuit and we can
+        tune different parameters to observe any changes in its response.
       </p>
-      <p class="text-center">
+      <!-- <p class="text-center">
         $C_{m} \cdot \frac{dV}{dt} = \frac{-(V - V_m)}{R_{m}} + I_{app}$
-      </p>
-</div>
-      <div class="justify-content-center">
-          <iframe
-            src="http://dashapps-env.eba-nevnhxgw.us-east-1.elasticbeanstalk.com/Passive_Membrane/"
-            frameborder="0"
-            marginheight="0"
-            marginwidth="0"
-            width="100%"
-            height="70%"
-            scrolling="no"
-          >
-          </iframe>
-          <div class="container latex-font pt-3 justify-content-center">
-            <figcaption class="figure-caption">
-              Fig 6. Dashboard to visualize different parameters for Leaky Integrate and
-              Fire neuron.
-            </figcaption>
-          </div>
-<div class="container latex-font pt-3">
-      <p>
-        The workhorse of modern deep learning, backpropagation depends on
-        finding gradients. In our case, we do not have a smooth function since
-        we are constantly resetting our neuron. This makes it difficult to find
-        the gradient. There exist techniques where we can smooth out the
-        non-continuous parts, which is similar to how we started this essay.
-      </p>
+      </p> -->
 
       <p>
-        Finally, if you are interested in seeing multiple neurons interacting,
-        you can visit the projects page to see the neuron dashboard interactive.
-        Thanks for reading!
+        A final note, the workhorse of modern deep learning, backpropagation,
+        depends on finding gradients. In our case, we do not have a smooth
+        function since we are constantly resetting our neuron. This makes it
+        difficult to find the gradient. There exist techniques where we can
+        smooth out the non-continuous parts, which is similar to how we started
+        this essay. Thanks for reading!
       </p>
 
       <h3>Sources:</h3>
