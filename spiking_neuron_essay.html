@@ -1,0 +1,280 @@
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Raghav's Data Science and AI Blog" />
+    <meta
+      name="keywords"
+      content="Software Engineering, Data Science, AI, Continual Learning, Research, Spiking Neural Networks"
+    />
+    <meta name="author" content="RaghavP" />
+
+    <title>Raghav's Blog</title>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <script
+      type="text/javascript"
+      src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+    ></script>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <!-- Link Stylesheets -->
+    <link rel="stylesheet" href="./static/style.css" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarsSandwich"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div
+          class="collapse navbar-collapse justify-content-md-center"
+          id="navbarsSandwich"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" href="./index.html">About Me</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="./projects.html">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="./essays.html">Essays</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <ul class="dropdown-menu" aria-labelledby="dropdown10">
+                <li>
+                  <a class="dropdown-item" href="./index.html">About Me</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./projects.html">Projects</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./essays.html">Essays</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container latex-font pt-3">
+      <div class="text-center">
+        <h1>Spiking Neuron Pseudo-Derivation</h1>
+      </div>
+      <p>
+        My goal with this essay is to describe what a spiking neuron is, and to
+        do so in a way that piggybacks off artificial neurons since many blog
+        posts and articles have already explained them so well. I hope to sort
+        of show the thought process with creating one which will allow us to
+        observe the behavior of already exisitng models.
+      </p>
+
+      <p>
+        We start with an artificial neuron, and I will assume you understand how
+        they work. In short, they take a weighted sum of the inputs and outputs
+        some value. We show a diagram below to visualize the process. We feed a
+        list of numbers into the nueron and the output is a dot product (we will
+        ignore any activation function processing). This model is intended to
+        model what biological neurons do. From the current state of AI, it does
+        a pretty good job. But can we develop this concept to be more faithful
+        to biology? Biology tells us that neurons are dynamic and change over
+        time. Is this something that we can add to our concept of an artificial
+        neuron? Can we have it change over time.
+      </p>
+      <div class="container w-30">
+        <figure class="figure text-center">
+          <img
+            src="./static/artificial_neuron.png"
+            class="figure-img img-fluid rounded"
+            alt="..."
+          />
+          <figcaption class="figure-caption">
+            Fig 1. Artificial Neuron.
+          </figcaption>
+        </figure>
+      </div>
+
+      <p>
+        The previous figure shows a static representation of the neuron. It
+        takes numbers and outputs a number. If we want it to change over time,
+        we would need to add a clock to it. In mathematical notation, we can add
+        another parameter, $t$, to the neuron's function. As of right now the
+        above neuron's output over time is the same. The function to describe
+        neuron in Fig 1. is $f(x, w)$. There is no $t$ in this function so just
+        to explicitly drive the point that it is in a fixed state, we can plot
+        it over time as in Fig 2.
+      </p>
+
+      <div class="container w-30">
+        <figure class="figure text-center">
+          <img
+            src="./static/artificial_neuron_over_time.png"
+            class="figure-img img-fluid rounded"
+            alt="..."
+          />
+          <figcaption class="figure-caption">
+            Fig 2. Artificial Neuron.
+          </figcaption>
+        </figure>
+      </div>
+
+      <p>
+        Not a very exciting graph, but that's ok. We want it to do something as
+        time progresses. This also means our input should have units of time.
+        Let's use the input $\textbf{x}$ as the time of arrival of our
+        information. So a $t=1s$ we have some new information, and then at
+        $t=2s$ we have new information and finally at $t=4s$ we have our last
+        piece of information. Each new signal is weighted accordingly and the
+        sum is accumulated over time. Our plot now should look like a step
+        function.
+      </p>
+      <div class="container w-30">
+        <figure class="figure text-center">
+          <img
+            src="./static/artificial_neuron_step_function.png"
+            class="figure-img img-fluid rounded"
+            alt="..."
+          />
+          <figcaption class="figure-caption">
+            Fig 3. Artificial Neuron.
+          </figcaption>
+        </figure>
+      </div>
+
+      <p>
+        The step function allows us to pictorially transition to a more
+        complicated function that changes over time. Right now we just multiply
+        the weight by the input and get the new value for our neuron cell. As we
+        accumulate these values we end up back to our original dot product of
+        $1.20$. What if we said our weights acted as multipliers? So as time
+        progresses we accumulate a factor of $w$ information. A simple function
+        we can use for how the input changes is $weight \cdot time passed$. This
+        is just a straight line that is increasing with a slope = $w$. Now we
+        plug in $w\cdot t$ wherever we had a horizontal line in Fig 2.
+      </p>
+
+      <div class="container w-30">
+        <figure class="figure text-center">
+          <img
+            src="./static/artificial_neuron_linearly_changing_weights.png"
+            class="figure-img img-fluid rounded"
+            alt="..."
+          />
+          <figcaption class="figure-caption">
+            Fig 4. Artificial Neuron with linearly changing input based on
+            weight.
+          </figcaption>
+        </figure>
+      </div>
+
+      <p>
+        Previously, our artificial cell was outputting a value of 1.20
+        (remember, we are ignoring any sort of processing function, like sigmoid
+        or other activation functions. Since our weights are now allowing our
+        cell to accumulate a proportional amount of the input over time, we need
+        to add a stopping value. For simplicity, we'll pick this stopping value
+        to be 1.0. In other words, our threshold for saying we have enough
+        information is $=1.0$. Now we can reset our neuron cell back to 0 and
+        start the process again. Resetting to 0 and choosing the threshold to be
+        1 are not exact rules; they can be any number you wish.
+      </p>
+
+      <div class="container w-30">
+        <figure class="figure text-center">
+          <img
+            src="./static/artificial_neuron_linearly_changing_weights_reset.png"
+            class="figure-img img-fluid rounded"
+            alt="..."
+          />
+          <figcaption class="figure-caption">
+            Fig 5. Artificial Neuron with linearly changing input based on
+            weight.
+          </figcaption>
+        </figure>
+      </div>
+
+      <p>
+        Now we have built our very own neuron that takes in information over
+        time and produces and output that is also with respect to time. From Fig
+        5 we see 3 units of information come in at $t=[1, 2, 5]seconds$ and our
+        cell gives an output of 1 unit of information at $t=4.5seconds$. Now
+        imagine how complicated the sequences are in brains. We have an
+        estimated $86$ billion neurons [1]. There exists a vast number of
+        neuronal models, and a common one taught in computational neuroscience
+        courses is the leaky integrate and fire neuron. We won't get into the
+        derivation for it here but I put a dashboard below for you to play
+        around with how the different properties in the LIF equation effect its
+        response over time. It is modelled after an RC circuit and without any
+        input we can tune different parameters to observe any changes in its
+        response.
+      </p>
+      <p class="text-center">
+        $C_{m} \cdot \frac{dV}{dt} = \frac{-(V - V_m)}{R_{m}} + I_{app}$
+      </p>
+</div>
+      <div class="justify-content-center">
+          <iframe
+            src="http://dashapps-env.eba-nevnhxgw.us-east-1.elasticbeanstalk.com/Passive_Membrane/"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+            width="100%"
+            height="70%"
+            scrolling="no"
+          >
+          </iframe>
+          <div class="container latex-font pt-3 justify-content-center">
+            <figcaption class="figure-caption">
+              Fig 6. Dashboard to visualize different parameters for Leaky Integrate and
+              Fire neuron.
+            </figcaption>
+          </div>
+<div class="container latex-font pt-3">
+      <p>
+        The workhorse of modern deep learning, backpropagation depends on
+        finding gradients. In our case, we do not have a smooth function since
+        we are constantly resetting our neuron. This makes it difficult to find
+        the gradient. There exist techniques where we can smooth out the
+        non-continuous parts, which is similar to how we started this essay.
+      </p>
+
+      <p>
+        Finally, if you are interested in seeing multiple neurons interacting,
+        you can visit the projects page to see the neuron dashboard interactive.
+        Thanks for reading!
+      </p>
+
+      <h3>Sources:</h3>
+      <ol>
+        <li>
+          https://www.brainfacts.org/in-the-lab/meet-the-researcher/2018/how-many-neurons-are-in-the-brain-120418
+        </li>
+      </ol>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

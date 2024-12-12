@@ -1,0 +1,183 @@
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Raghav's Data Science and AI Blog" />
+    <meta
+      name="keywords"
+      content="Software Engineering, Data Science, AI, Continual Learning, Research, Spiking Neural Networks"
+    />
+    <meta name="author" content="RaghavP" />
+
+    <title>Raghav's Blog</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <!-- Link Stylesheets -->
+    <link rel="stylesheet" href="./static/style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=CMU+Serif:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarsSandwich"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div
+          class="collapse navbar-collapse justify-content-md-center"
+          id="navbarsSandwich"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" href="./index.html">About Me</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="./projects.html">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="./essays.html">Essays</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <ul class="dropdown-menu" aria-labelledby="dropdown10">
+                <li>
+                  <a class="dropdown-item" href="./index.html">About Me</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./projects.html">Projects</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./essays.html">Essays</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 pt-3">
+        <div class="col">
+          <div class="card cardProject h-100">
+            <img
+              src="/static/Neuron_Dashboard_thumbnail.png"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <p class="card-text">
+                Visualize voltage trace of a spiking neuron with 3 input cells.
+                For use as educational tool.
+              </p>
+            </div>
+            <div class="card-footer">
+              <div class="btn-group">
+                <a
+                  href="http://dashapps-env.eba-nevnhxgw.us-east-1.elasticbeanstalk.com/Multiple_Inputs/"
+                  target="_blank"
+                  class="btn btn-sm btn-outline-secondary"
+                  role="button"
+                  >View</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card cardProject h-100">
+            <img
+              src="/static/compiler_thumbnail.png"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <p class="card-text">
+                Compiler for Decaf programming language. Written in Java steps
+                through the four main phases: (1) Lexical Analysis, (2) Syntax
+                Analysis, (3) Semantic Analysis, (4) Intermediate Code
+                Generation for basic functions.
+              </p>
+            </div>
+            <div class="card-footer">
+              <div class="btn-group">
+                <a
+                  href="https://github.com/r-p123/Compiler_Project"
+                  target="_blank"
+                  class="btn btn-sm btn-outline-secondary"
+                  role="button"
+                  >View</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card cardProject h-100">
+            <img
+              src="./static/sleep_thumbnail.png"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <p class="card-text">
+                Use YASA Python package to automate detection of sleep phases
+                and output in excel sheet.
+              </p>
+            </div>
+            <div class="card-footer">
+              <div class="btn-group">
+                <a
+                  href="https://github.com/r-p123/Sleep_Spindle_Stats"
+                  target="_blank"
+                  class="btn btn-sm btn-outline-secondary"
+                  role="button"
+                  >View</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js"
+    ></script>
+  </body>
+</html>
