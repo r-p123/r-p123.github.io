@@ -1,0 +1,111 @@
+
+
+.img-fluid{
+  width: 100%;
+}
+.jumbo{
+  text-align: justify;
+  font-size: larger;
+}
+
+.years{
+  text-align: right;
+}
+
+/* .col-sm-4.years{
+  text-align:left;
+}  */
+
+.container{
+  max-width: 65%;
+  
+}
+
+.container2{
+  max-width: 75%;
+}
+
+.nav_margin_remove{
+  margin-bottom: 0%;
+  padding-bottom: 0%;
+}
+
+.profile_picture{
+  /* top: 40%; */
+  align-content: center;
+  max-width: 170px;
+  height: auto;
+}
+
+
+.skills{
+  text-align: left;
+}
+
+.centered {
+  text-align:center;
+}
+
+.image-container{
+  text-align:center
+}
+
+
+.cardProject:hover{
+  transform: scale(1.05);
+/* box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06); */
+}
+
+.cardProject{
+  border-radius: 4px;
+  background: #fff;
+  /* box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05); */
+    transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+padding: 2px 2px 2px 2px;
+cursor: pointer;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 15vw;
+  object-fit: scale-down;
+}
+
+
+/* 
+.card-body{
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}  */
+/* 
+.card-text{
+  flex-grow: 1;
+} */
+
+
+.latex-font {
+  font-family: "CMU Serif", serif; /* Use the loaded LaTeX font */
+  font-size: 1.4rem; /* Adjust font size if needed */
+  line-height: 1.5; /* Ensure good readability */
+}
+
+
+
+@media screen and (max-width: 600px) {
+  .latex-font {
+    font-size: 4vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    max-width: 80%;
+  }
+}
+
+/* @media (min-width: 768px) and (max-width: 991.98px) { 
+  .buttonClass {
+    padding: 0;
+  }
+}  */
