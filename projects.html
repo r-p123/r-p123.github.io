@@ -12,17 +12,20 @@
 
     <title>Raghav's Blog</title>
 
-    
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G041ME6C99"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-G041ME6C99"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-G041ME6C99');
-    </script>
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
+      gtag("config", "G-G041ME6C99");
+    </script>
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -95,20 +98,36 @@
         <div class="col">
           <div class="card cardProject h-100">
             <img
-              src="/static/Neuron_Dashboard_thumbnail.png"
+              src="/static/spotify_thumbnail.png"
               class="card-img-top"
               alt="..."
             />
             <div class="card-body">
               <p class="card-text">
-                Visualize voltage trace of a spiking neuron with 3 input cells.
-                For use as educational tool.
+                Picnic Music Web App (Spotify Clone) using MERN stack with the following
+                features:
+                <ul>
+
+                  <li>
+                    Clerk user authentication
+                  </li>
+                  <li>
+                    User song querying
+                  </li>
+                  <li>
+                    User playlist CRUD API
+                  </li>
+                  <li>
+                    Aggregate data for each user’s song library.
+                  </li>
+
+                </ul>
               </p>
             </div>
             <div class="card-footer">
               <div class="btn-group">
                 <a
-                  href="http://dashapps-env.eba-nevnhxgw.us-east-1.elasticbeanstalk.com/Multiple_Inputs/"
+                  href="https://github.com/r-p123/Picnic_Music_Player"
                   target="_blank"
                   class="btn btn-sm btn-outline-secondary"
                   role="button"
@@ -129,15 +148,47 @@
             <div class="card-body">
               <p class="card-text">
                 Compiler for Decaf programming language. Written in Java steps
-                through the four main phases: (1) Lexical Analysis, (2) Syntax
-                Analysis, (3) Semantic Analysis, (4) Intermediate Code
-                Generation for basic functions.
+                through the four main phases:
+                <ol>
+                  <li>Lexical Analysis</li>
+                  <li>Syntax Analysis</li>
+                  <li>Semantic Analysis</li>
+                  <li>Intermediate Code
+                    Generation for basic functions</li>
+                </ol>
               </p>
             </div>
             <div class="card-footer">
               <div class="btn-group">
                 <a
                   href="https://github.com/r-p123/Compiler_Project"
+                  target="_blank"
+                  class="btn btn-sm btn-outline-secondary"
+                  role="button"
+                  >View</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card cardProject h-100">
+            <img
+              src="/static/Neuron_Dashboard_thumbnail.png"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <p class="card-text">
+                Visualize voltage trace of a spiking neuron with 3 input cells.
+                For use as educational tool.
+              </p>
+            </div>
+            <div class="card-footer">
+              <div class="btn-group">
+                <a
+                  href="http://dashapps-env.eba-nevnhxgw.us-east-1.elasticbeanstalk.com/Multiple_Inputs/"
                   target="_blank"
                   class="btn btn-sm btn-outline-secondary"
                   role="button"
